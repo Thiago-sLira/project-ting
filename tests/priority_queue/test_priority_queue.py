@@ -21,3 +21,7 @@ def test_basic_priority_queueing():
 
     priority_queue.enqueue(new_priority_customer)
     assert len(priority_queue) == 2
+
+    priority_queue.dequeue()
+    assert len(priority_queue.high_priority) == 0
+    assert len(priority_queue.regular_priority) == 1
