@@ -1,9 +1,13 @@
 import sys
-from queue import Queue
-from file_management import txt_importer
+from ting_file_management.queue import Queue
+from ting_file_management.file_management import txt_importer
 
 
 def process(path_file, instance: Queue):
+    for index in range(len(instance)):
+        if path_file == instance.search(index)["nome_do_arquivo"]:
+            return None
+
     data_file = txt_importer(path_file)
 
     new_dict = {
@@ -12,12 +16,9 @@ def process(path_file, instance: Queue):
         "linhas_do_arquivo": data_file,
     }
 
-    for index in instance.__len__():
-        if path_file == instance.search(index)["nome_do_arquivo"]:
-            pass
-        else:
-            instance.enqueue(new_dict)
-            sys.stdout.write(new_dict)
+    instance.enqueue(new_dict)
+    sys.stdout.write(str(new_dict))
+    # print(str(new_dict))
 
 
 def remove(instance):
