@@ -1,5 +1,9 @@
-def process(path_file, instance):
-    """Aqui irá sua implementação"""
+from queue import Queue
+from file_management import txt_importer
+
+
+def process(path_file, instance: Queue):
+    data_file = txt_importer(path_file)
 
 
 def remove(instance):
