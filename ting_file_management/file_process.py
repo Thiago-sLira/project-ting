@@ -18,7 +18,7 @@ def process(path_file, instance: Queue):
 
     instance.enqueue(new_dict)
     sys.stdout.write(str(new_dict))
-    # print(str(new_dict))
+    # print(str(new_dict)) mais um push
 
 
 def remove(instance: Queue):
